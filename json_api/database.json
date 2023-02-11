@@ -2,29 +2,29 @@
     "users": [
         {
             "id": 0,
-            "name": "Rodrigo Rahman",
-            "email": "rodrigorahman@academiadoflutter.com.br",
-            "password": "123"
+            "name": "Teste",
+            "email": "Teste@teste.com.br",
+            "password": "123456"
         },
         {
             "id": 1,
-            "name": "Guilherme",
-            "email": "guilherme@gmail.com",
-            "password": "1234"
+            "name": "Teste",
+            "email": "Teste1@teste1@gmail.com",
+            "password": "123456"
         }
     ],
     "products": [
         {
             "id": 0,
-            "title": "Academia do flutter"
+            "title": "Teste"
         },
         {
             "id": 1,
-            "title": "Jornada Dart"
+            "title": "Teste"
         },
         {
             "id": 2,
-            "title": "Jornada GetX"
+            "title": "Teste"
         }
     ]
 }
