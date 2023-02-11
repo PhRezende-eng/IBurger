@@ -4,11 +4,13 @@ host: 0.0.0.0
 database: database.json
 
 auth:
-  jwtSecret: cwsMXDtuP447WZQ63nM4dWZ3RppyMl
-  jwtExpire: 3600
-  unauthorizedStatusCode: 403
-  urlSkip:
-    - /users:
-       method: post
-     - /products/{*}:
-       method: get
+   jwtSecret: cwsMXDtuP447WZQ63nM4dWZ3RppyMl
+   jwtExpire: 3600
+   unauthorizedStatusCode: 401
+   urlSkip:
+      - /users:
+         method: post
+      - /products:
+         method: get
+      - /products/{*}:
+          method: get
