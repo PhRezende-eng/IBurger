@@ -75,34 +75,6 @@
             "description": "Lanche acompanha pão, hambúrguer, fatias de bacon, queijo, maionese, alface e tomate",
             "price": 19.0,
             "image": "https://burger.eriklima.me/wp-content/uploads/2021/03/X-Bacon.jpg"
-        },
-        {
-            "id": 7,
-            "name": "Porção de 500g Batata frita simples",
-            "description": "Teste",
-            "price": 19.0,
-            "image": "https://www.botecogois.com.br/wp-content/uploads/2021/01/batata-frita-porcao.jpg"
-        },
-        {
-            "id": 8,
-            "name": "Porção de 500g Calabresa acebolada",
-            "description": "Teste",
-            "price": 19.0,
-            "image": "https://www.anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-1682-52acab79d88efd805e6a341697e6aecb.jpg"
-        },
-        {
-            "id": 9,
-            "name": "Porção de 500g Batata com Cheddar e Bacon",
-            "description": "Batata Cheddar e Bacon",
-            "price": 25.0,
-            "image": "https://i.ytimg.com/vi/0Fea2vwfnN8/maxresdefault.jpg"
-        },
-        {
-            "id": 10,
-            "name": "Teste",
-            "description": "TEste",
-            "price": 25.0,
-            "image": "https://i.ytimg.com/vi/0Fea2vwfnN8/maxresdefault.jpg"
         }
     ],
     "orders": []

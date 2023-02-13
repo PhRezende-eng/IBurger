@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iburger/app/core/ui/helpers/snack_bar_message.dart';
+import 'package:iburger/app/core/ui/widgets/snack_bar_message.dart';
 
 mixin Messages<T extends StatefulWidget> on State<T> {
   void showError(String message) {

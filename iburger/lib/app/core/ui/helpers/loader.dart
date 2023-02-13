@@ -41,6 +41,13 @@ mixin Loader<T extends StatefulWidget> on State<T> {
           ],
         ),
       );
+      // showDialog(
+      //   context: context,
+      //   builder: (_) => CupertinoActivityIndicator(
+      //     radius: 25.0,
+      //     color: textColor,
+      //   ),
+      // );
 
       // showDialog(
       //   context: context,
