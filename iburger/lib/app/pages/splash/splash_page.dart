@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:iburger/app/core/ui/helpers/size_extensions.dart';
 import 'package:iburger/app/core/ui/styles/colors_app.dart';
 import 'package:iburger/app/core/ui/widgets/delivery_button.dart';
@@ -35,7 +33,9 @@ class SplashPage extends StatelessWidget {
                     height: 35,
                     width: context.percentWidth(0.6),
                     label: 'ACESSAR',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.popAndPushNamed(context, '/home');
+                    },
                   )
                 ],
               ),

@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:iburger/app/core/rest_client/custom_dio.dart';
 import 'package:iburger/app/pages/home/home_page.dart';
