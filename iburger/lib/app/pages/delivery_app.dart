@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:iburger/app/core/ui/theme/theme_config.dart';
 import 'package:iburger/app/pages/splash/splash_page.dart';
 
