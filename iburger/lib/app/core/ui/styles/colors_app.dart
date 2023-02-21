@@ -20,6 +20,7 @@ class ColorsApp {
   Color get whiteColor => Colors.white;
   Color get blackColor => Colors.black;
   Color get errorColor => Colors.red;
+  Color get splashBackgroundColor => const Color(0XFF140E0E);
 }
 
 extension T on BuildContext {
