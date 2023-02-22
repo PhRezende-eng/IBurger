@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iburger/app/core/ui/helpers/loader.dart';
 import 'package:iburger/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:iburger/app/models/product_model.dart';
 import 'package:iburger/app/pages/home/widgets/delivery_product_tile.dart';
@@ -19,11 +20,18 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with Loader {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DeliveryAppBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          showLoader();
+          await Future.delayed(Duration(seconds: 3));
+          hideLoader();
+        },
+      ),
       body: Column(
         children: [
           Expanded(
