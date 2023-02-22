@@ -32,7 +32,7 @@ class TextStyles {
       TextStyle(fontWeight: FontWeight.bold, fontFamily: font);
 
   TextStyle get textExtraBold =>
-      TextStyle(fontWeight: FontWeight.w300, fontFamily: font);
+      TextStyle(fontWeight: FontWeight.w700, fontFamily: font);
 
   TextStyle get textButtonLabel => textBold.copyWith(fontSize: 14);
 }
