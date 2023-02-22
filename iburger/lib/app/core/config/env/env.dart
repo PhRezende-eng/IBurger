@@ -13,7 +13,7 @@ class Env {
     }
   }
 
-  Future<void> load() async => await dotenv.load();
+  Future<void> get load async => await dotenv.load(fileName: ".env");
 
   String? operator [](String key) => dotenv.env[key];
 }
