@@ -18,7 +18,7 @@ class SplashPage extends StatelessWidget {
               child: SizedBox(
                 width: context.screenWidth,
                 child: Image.asset(
-                  'assets/images.png ',
+                  'assets/images/lanche.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -26,7 +26,7 @@ class SplashPage extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  SizedBox(height: context.percentHeight(0.3)),
+                  SizedBox(height: context.percentHeight(0.1)),
                   Image.asset('assets/images/logo.png'),
                   const SizedBox(height: 80),
                   DeliveryButton(
