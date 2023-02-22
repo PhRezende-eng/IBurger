@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> with Loader {
       appBar: DeliveryAppBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          showLoader();
-          await Future.delayed(Duration(seconds: 3));
+          showLoader('Carregando produtos');
+          await Future.delayed(const Duration(seconds: 3));
           hideLoader();
         },
       ),
