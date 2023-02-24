@@ -33,6 +33,9 @@ dependencies:
   dio: ^4.0.6
   flutter_dotenv: ^5.0.2
   provider: ^6.0.5
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
   # loading_animation_widget: ^1.2.0+4
   # top_snackbar_flutter: ^3.0.0+1
 
