@@ -12,6 +12,7 @@ class ApplicationBinding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      //design partern creating singleton for dependecy ejection
       providers: [Provider(create: (context) => CustomDio())],
       child: child,
     );

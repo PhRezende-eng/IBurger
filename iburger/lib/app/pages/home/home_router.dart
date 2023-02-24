@@ -10,6 +10,7 @@ abstract class HomeRouter {
   static Widget get page => MultiProvider(
         providers: [
           Provider<ProductsRepositoryImpl>(
+            //design partern using instance by dependecy injection
             create: (context) =>
                 ProductsRepositoryImpl(context.read<CustomDio>()),
           )

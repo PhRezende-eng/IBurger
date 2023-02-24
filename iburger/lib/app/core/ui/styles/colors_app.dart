@@ -5,6 +5,7 @@ class ColorsApp {
 
   ColorsApp._();
 
+  //design partern singletton
   static ColorsApp get instance {
     if (_instance == null) {
       _instance = ColorsApp._();
