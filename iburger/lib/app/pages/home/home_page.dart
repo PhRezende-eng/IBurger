@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iburger/app/core/ui/helpers/loader.dart';
+import 'package:iburger/app/core/ui/helpers/messages.dart';
 import 'package:iburger/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:iburger/app/models/product_model.dart';
 import 'package:iburger/app/pages/home/widgets/delivery_product_tile.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with Loader {
+class _HomePageState extends State<HomePage> with Loader, Messages {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +31,11 @@ class _HomePageState extends State<HomePage> with Loader {
           showLoader('Carregando produtos');
           await Future.delayed(const Duration(seconds: 3));
           hideLoader();
+          showError('Error ...');
+          await Future.delayed(const Duration(seconds: 2));
+          showSuccess('Sucesso ...');
+          await Future.delayed(const Duration(seconds: 2));
+          showInfo('Aviso ...');
         },
       ),
       body: Column(

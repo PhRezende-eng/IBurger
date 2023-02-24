@@ -52,10 +52,6 @@ mixin Loader<T extends StatefulWidget> on State<T> {
     }
   }
 
-  void showError() {}
-
-  void showSucces() {}
-
   void hideLoader() {
     if (isOpen) {
       isOpen = false;

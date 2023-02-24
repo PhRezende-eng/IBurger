@@ -9,7 +9,6 @@ extension T on double {
   // }
 
   String get currencyPTBR {
-    //TODO: improvement it
     String ptbrPrice = r'R$ ';
     ptbrPrice += toStringAsFixed(2);
     ptbrPrice = ptbrPrice.replaceFirst('.', ',');
