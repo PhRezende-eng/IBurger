@@ -19,8 +19,10 @@ class ColorsApp {
   Color get borderSideButton => Colors.grey[400]!;
   Color get whiteColor => Colors.white;
   Color get blackColor => Colors.black;
-  Color get errorColor => Colors.red;
+  Color get errorColor => const Color.fromARGB(255, 255, 91, 80);
   Color get splashBackgroundColor => const Color(0XFF140E0E);
+  Color get successColor => const Color.fromARGB(255, 97, 255, 88);
+  Color get warningColor => const Color.fromARGB(255, 255, 197, 36);
 }
 
 extension T on BuildContext {
