@@ -15,6 +15,16 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+# Run local server 
+1° - Active the Json Rest Server from pub
+```
+dart pub global activate json_rest_server
+```
+2° - Run server from json_api folder 
+```
+json_rest_server run
+
+```
 
 # Some states for show messages and loadings
 - All of them was implemented with native flutter component, therefore, I have not used dependecy to show them.
