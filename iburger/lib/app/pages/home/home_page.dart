@@ -2,13 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iburger/app/core/ui/helpers/loader.dart';
-import 'package:iburger/app/core/ui/helpers/messages.dart';
+import 'package:iburger/app/core/ui/base_state/base_state.dart';
 import 'package:iburger/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:iburger/app/pages/home/home_controller.dart';
 import 'package:iburger/app/pages/home/home_state.dart';
 import 'package:iburger/app/pages/home/widgets/delivery_product_tile.dart';
-import 'package:iburger/app/repository/products/products_repository_impl.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,14 +15,11 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with Loader, Messages {
+class _HomePageState extends BaseState<HomePage, HomeController> {
   @override
-  void initState() {
-    super.initState();
-    //Used to run after init first frame from Screen
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      context.read<ProductsRepositoryImpl>().loadProducts();
-    });
+  void onReady() {
+    controller.loadProducts();
+    super.onReady();
   }
 
   @override
@@ -32,7 +27,19 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
     return Scaffold(
       appBar: DeliveryAppBar(),
       body: BlocConsumer<HomeController, HomeState>(
-        listener: (context, state) => {},
+        listener: (context, state) => state.status.matchAny(
+          any: () => hideLoader(),
+          loading: () => showLoader('Carregando produtos'),
+          error: () {
+            hideLoader();
+            showError(state.errorMessage ?? 'Erro não informado');
+          },
+        ),
+        buildWhen: (previousState, state) => state.status.matchAny(
+          any: () => false,
+          initial: () => true,
+          loaded: () => true,
+        ),
         builder: (context, state) => Column(
           children: [
             Expanded(
@@ -51,7 +58,8 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
                       ],
                     ),
                   ),
-                  const Text('List Products ends here'),
+                  if (state.status == HomeStateStatus.loaded)
+                    const Center(child: Text('List Products ends here')),
                 ],
               ),
             ),
