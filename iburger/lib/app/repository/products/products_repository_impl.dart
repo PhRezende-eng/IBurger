@@ -15,10 +15,11 @@ class ProductsRepositoryImpl implements ProductsRepository {
     try {
       final response = await dio.unAuth().get('/products');
       final responseData = response.data;
+      List<ProductModel> listProducts = [];
 
-      List<ProductModel> listProducts = responseData
-          .map<ProductModel>((product) => ProductModel.fromJson(product))
-          .toList();
+      for (var product in responseData) {
+        listProducts.add(ProductModel.fromMap(product));
+      }
 
       return listProducts;
     } on DioError catch (e, s) {
