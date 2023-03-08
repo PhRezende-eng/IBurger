@@ -45,7 +45,10 @@ ListView? _diffListViewCreationWithColumn(
             product: product,
           ),
         ),
-        DeliveryButton(onPressed: () {}, label: 'Limpar Carrinho')
+        DeliveryButton(
+          onPressed: () {},
+          child: const Text("Limpar Carrinho"),
+        )
       ],
     );
     //

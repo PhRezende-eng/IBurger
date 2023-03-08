@@ -24,6 +24,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: create reload screen when error state
     return Scaffold(
       appBar: DeliveryAppBar(),
       body: BlocConsumer<HomeController, HomeState>(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DeliveryButton extends StatelessWidget {
-  final String label;
+  final Widget child;
   final VoidCallback onPressed;
   final double? height;
   final double? width;
 
   const DeliveryButton({
     required this.onPressed,
-    required this.label,
+    required this.child,
     this.height = 56,
     this.width = double.infinity,
     super.key,
@@ -21,7 +21,7 @@ class DeliveryButton extends StatelessWidget {
       width: width,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(label),
+        child: child,
       ),
     );
   }

@@ -32,6 +32,7 @@ class DeliveryProductTile extends StatelessWidget {
                     child: Hero(
                       tag: '${product.id}${product.name}',
                       child: Material(
+                        color: context.colors.whiteColor,
                         child: Text(
                           product.name,
                           style: context.textStyles.textExtraBold
@@ -45,6 +46,7 @@ class DeliveryProductTile extends StatelessWidget {
                     child: Hero(
                       tag: '${product.id}${product.description}',
                       child: Material(
+                        color: context.colors.whiteColor,
                         child: Text(
                           product.description,
                           style: context.textStyles.textRegular
