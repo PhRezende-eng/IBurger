@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:iburger/app/dto/order_product_dto.dart';
 import 'package:iburger/app/pages/home/home_state.dart';
 import 'package:iburger/app/repository/products/products_repository.dart';
 
@@ -23,5 +24,23 @@ class HomeController extends Cubit<HomeState> {
         ),
       );
     }
+  }
+
+  void addOrUpdateBag(OrderProductDto orderProductDto) {
+    final shoppingBag = [...state.shoppingBag];
+    final orderIndex = shoppingBag
+        .indexWhere((order) => order.product == orderProductDto.product);
+
+    if (orderIndex > -1) {
+      if (orderProductDto.amount == 0) {
+        shoppingBag.removeAt(orderIndex);
+      } else {
+        shoppingBag[orderIndex] = orderProductDto;
+      }
+    } else {
+      shoppingBag.add(orderProductDto);
+    }
+
+    emit(state.copyWith(shoppingBag: shoppingBag));
   }
 }
