@@ -34,7 +34,7 @@ class HomeState extends Equatable {
         errorMessage = null;
 
   @override
-  List<Object?> get props => [status, products, errorMessage];
+  List<Object?> get props => [status, products, errorMessage, shoppingBag];
 
   //design partern prototype
   HomeState copyWith({
