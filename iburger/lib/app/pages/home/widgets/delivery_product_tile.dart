@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iburger/app/core/extensions/formatter_extension.dart';
 import 'package:iburger/app/core/ui/styles/colors_app.dart';
 import 'package:iburger/app/core/ui/styles/text_styles.dart';
+import 'package:iburger/app/dto/order_product_dto.dart';
 import 'package:iburger/app/models/product_model.dart';
+import 'package:iburger/app/pages/home/home_controller.dart';
 
 class DeliveryProductTile extends StatelessWidget {
   final ProductModel product;
-  const DeliveryProductTile({super.key, required this.product});
+  final OrderProductDto? orderProduct;
+  const DeliveryProductTile(
+      {super.key, required this.product, this.orderProduct});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       // Like GestureDetector
       onTap: () async {
-        await Navigator.of(context).pushNamed(
+        final controller = context.read<HomeController>();
+        final orderProduct = await Navigator.of(context).pushNamed(
           '/productDetail',
-          arguments: {'product': product},
+          arguments: {
+            'product': product,
+            'order': this.orderProduct,
+          },
         );
+
+        if (orderProduct != null) {
+          controller.addOrUpdateBag(orderProduct as OrderProductDto);
+        }
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
