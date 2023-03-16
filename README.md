@@ -30,8 +30,14 @@ json_rest_server run
 - All of them was implemented with native flutter component, therefore, I have not used dependecy to show them.
 <br></br>
 <div align="center">
-    <img src="images/loading.png" height="600px">
-    <img src="images/warning.png" height="600px">
-    <img src="images/success.png" height="600px">
-    <img src="images/error.png" height="600px">
+    <img src="assets/loading.png" height="600px">
+    <img src="assets/warning.png" height="600px">
+    <img src="assets/success.png" height="600px">
+    <img src="assets/error.png" height="600px">
+</div>
+
+# See some of Animations that there is on APP
+<br></br>
+<div align="center">
+    <video src="assets/hero.mp4" height="600px" controls>
 </div>
