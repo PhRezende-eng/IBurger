@@ -45,27 +45,25 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
         builder: (context, state) => Column(
           children: [
             Expanded(
-              child: ListView(
-                children: [
-                  // Spread operator, inserting/spreading elements into a collection
-                  // I could be map the products directly by children, removindo the list...
-                  ...state.products.map(
-                    (product) => Column(
-                      children: [
-                        DeliveryProductTile(
-                          key: ObjectKey(product.id),
-                          product: product,
-                          orderProduct: state.shoppingBag
-                                  .where((order) => order.product == product)
-                              as OrderProductDto?,
-                        ),
-                        const Divider(),
-                      ],
-                    ),
-                  ),
-                  if (state.status == HomeStateStatus.loaded)
-                    const Center(child: Text('List Products ends here')),
-                ],
+              child: ListView.builder(
+                itemCount: state.products.length,
+                itemBuilder: (context, index) {
+                  final product = state.products[index];
+                  final orders = state.shoppingBag.where(
+                    (order) => order.product == product,
+                  );
+
+                  return Column(
+                    children: [
+                      DeliveryProductTile(
+                        key: ObjectKey(product.id),
+                        product: product,
+                        orderProduct: orders.isNotEmpty ? orders.first : null,
+                      ),
+                      const Divider(),
+                    ],
+                  );
+                },
               ),
             ),
           ],

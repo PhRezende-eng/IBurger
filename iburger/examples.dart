@@ -37,6 +37,8 @@ ListView? _diffListViewCreationWithColumn(
   } else if (opt ==
       'ListView with Column by spread operator into children and button at end List') {
     //
+    // Spread operator, inserting/spreading elements into a collection
+    // I could be map the products directly by children, removindo the list...
     return ListView(
       children: [
         ...products.map(
