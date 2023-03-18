@@ -39,5 +39,5 @@ json_rest_server run
 # See some of Animations that there is on APP
 <br></br>
 <div align="center">
-    <video src="assets/hero.mp4" height="600px" controls>
+    <video src="https://user-images.githubusercontent.com/63085711/226089369-cfe08382-4f39-4757-81e6-312675ee0223.mp4" height="600px" controls>
 </div>
