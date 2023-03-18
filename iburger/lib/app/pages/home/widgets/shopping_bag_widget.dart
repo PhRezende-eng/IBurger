@@ -4,6 +4,7 @@ import 'package:iburger/app/core/ui/helpers/size_extensions.dart';
 import 'package:iburger/app/core/ui/styles/colors_app.dart';
 import 'package:iburger/app/core/ui/styles/text_styles.dart';
 import 'package:iburger/app/dto/order_product_dto.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ShoppingBagWidget extends StatelessWidget {
   final List<OrderProductDto> bag;
@@ -27,7 +28,9 @@ class ShoppingBagWidget extends StatelessWidget {
         boxShadow: [BoxShadow(color: context.colors.shadow, blurRadius: 8)],
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          _sendToOrder(context);
+        },
         child: Stack(
           children: [
             const Align(
@@ -54,5 +57,14 @@ class ShoppingBagWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _sendToOrder(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final sp = await SharedPreferences.getInstance();
+
+    if (!sp.containsKey("accessKey")) {
+      await navigator.pushNamed('/auth/login');
+    }
   }
 }

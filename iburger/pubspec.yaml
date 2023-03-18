@@ -37,6 +37,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
   match: ^0.4.1
+  shared_preferences: ^2.0.18
   # loading_animation_widget: ^1.2.0+4
   # top_snackbar_flutter: ^3.0.0+1
 
