@@ -41,3 +41,9 @@ json_rest_server run
 <div align="center">
     <video src="https://user-images.githubusercontent.com/63085711/226089369-cfe08382-4f39-4757-81e6-312675ee0223.mp4" height="600px" controls>
 </div>
+
+# Insights
+ - CustomScrollView with SliverFillRomain()
+ - Stack for postion fix children into row (decrement qtd increment)
+ - Creation of components by extends Widget using super to implements the widget
+ - extensions for context, example, get textStyle from context as singleton
