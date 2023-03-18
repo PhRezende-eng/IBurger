@@ -6,4 +6,6 @@ class OrderProductDto {
   OrderProductDto(this.amount, this.product);
 
   double get totalPrice => amount * product.price;
+
+  //TODO: put here orderTotalPrice changing the structure
 }

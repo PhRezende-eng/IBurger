@@ -24,6 +24,7 @@ class ColorsApp {
   Color get splashBackgroundColor => const Color(0XFF140E0E);
   Color get successColor => const Color.fromARGB(255, 97, 255, 88);
   Color get warningColor => const Color.fromARGB(255, 255, 197, 36);
+  Color get shadow => Colors.black12;
 }
 
 extension T on BuildContext {
