@@ -47,3 +47,4 @@ json_rest_server run
  - Stack for postion fix children into row (decrement qtd increment)
  - Creation of components by extends Widget using super to implements the widget
  - extensions for context, example, get textStyle from context as singleton
+ - ValueNotifier to update just one part of screen by some variable type
