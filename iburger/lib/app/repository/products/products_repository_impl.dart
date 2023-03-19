@@ -24,7 +24,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
       return listProducts;
     } on DioError catch (e, s) {
       const errorMessage = 'Erro ao buscar produtos';
-      log(errorMessage, error: errorMessage, stackTrace: s);
+      log(errorMessage, error: e, stackTrace: s);
       throw RepositoryException(message: errorMessage);
     }
   }
