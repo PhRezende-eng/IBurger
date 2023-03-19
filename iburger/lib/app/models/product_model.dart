@@ -31,9 +31,9 @@ class ProductModel {
         'image': image,
       };
 
-  factory ProductModel.fromJson(String json) => ProductModel.fromMap(
-        jsonDecode(json),
+  factory ProductModel.fromJson(String source) => ProductModel.fromMap(
+        json.decode(source),
       );
 
-  String get toJson => jsonEncode(toMap);
+  String get toJson => json.encode(toMap);
 }
