@@ -11,7 +11,6 @@ class ProductDetailRouter {
           Provider(
             create: (context) => ProductDetailController(),
           ),
-          Provider.value(value: Object())
         ],
         builder: (context, child) {
           final args = ModalRoute.of(context)!.settings.arguments
