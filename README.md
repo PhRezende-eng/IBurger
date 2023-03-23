@@ -26,6 +26,11 @@ json_rest_server run
 
 ```
 
+# Run build_runner
+```
+dart run build_runner watch -d
+```
+
 # Some states for show messages and loadings
 - All of them was implemented with native flutter component, therefore, I have not used dependecy to show them.
 <br></br>
