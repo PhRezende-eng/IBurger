@@ -21,11 +21,11 @@ class AuthRepositoryImpl implements AuthRepository {
       return AuthModel.fromMap(response.data);
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 403) {
-        log("Permissão negada", error: e, stackTrace: s);
-        throw UnthorizedExceptions();
+        const errorMessage = 'Acesso não autorizado';
+        log(errorMessage, error: e, stackTrace: s);
+        throw UnthorizedExceptions(message: errorMessage);
       }
-      const errorMessage = 'Erro ao buscar produtos';
-
+      const errorMessage = 'Erro ao efutuar login';
       log(errorMessage, error: e, stackTrace: s);
       throw RepositoryException(message: errorMessage);
     }
@@ -41,7 +41,6 @@ class AuthRepositoryImpl implements AuthRepository {
       });
     } on DioError catch (e, s) {
       const errorMessage = 'Erro ao registrar usário';
-
       log(errorMessage, error: e, stackTrace: s);
       throw RepositoryException(message: errorMessage);
     }
