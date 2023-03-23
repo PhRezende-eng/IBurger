@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:match/match.dart';
 part 'register_page_state.g.dart';
 
@@ -9,9 +10,9 @@ enum RegisterStatus {
   error,
 }
 
-class RegisterSate {
+class RegisterSate extends Equatable {
   final RegisterStatus status;
-  RegisterSate({
+  const RegisterSate({
     required this.status,
   });
 
@@ -24,4 +25,7 @@ class RegisterSate {
       status: status ?? this.status,
     );
   }
+
+  @override
+  List<Object?> get props => [status];
 }

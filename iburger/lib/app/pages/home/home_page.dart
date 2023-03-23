@@ -34,7 +34,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
           loading: () => showLoader('Carregando produtos'),
           error: () {
             hideLoader();
-            showError(state.errorMessage ?? 'Erro não informado');
+            showError(state.errorMessage!);
           },
         ),
         buildWhen: (previousState, state) => state.status.matchAny(

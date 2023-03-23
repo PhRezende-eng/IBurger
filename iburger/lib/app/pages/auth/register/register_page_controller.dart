@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:iburger/app/core/exception/repository_exception.dart';
 import 'package:iburger/app/pages/auth/register/register_page_state.dart';
 import 'package:iburger/app/repository/ayth/auth_repository_impl.dart.dart';
 
@@ -14,8 +15,8 @@ class RegisterPageController extends Cubit<RegisterSate> {
       emit(state.copyWith(status: RegisterStatus.loading));
       await _authRepository.register(email, email, password);
       emit(state.copyWith(status: RegisterStatus.success));
-    } catch (e, s) {
-      log('Error ao registrar usuário', error: e, stackTrace: s);
+    } on RepositoryException catch (e, s) {
+      log(e.message, error: e, stackTrace: s);
       emit(state.copyWith(status: RegisterStatus.error));
     }
   }

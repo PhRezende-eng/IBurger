@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:iburger/app/core/exception/repository_exception.dart';
 import 'package:iburger/app/dto/order_product_dto.dart';
 import 'package:iburger/app/pages/home/home_state.dart';
 import 'package:iburger/app/repository/products/products_repository.dart';
@@ -15,13 +16,10 @@ class HomeController extends Cubit<HomeState> {
     try {
       final products = await _productsRepository.loadProducts();
       emit(state.copyWith(status: HomeStateStatus.loaded, products: products));
-    } catch (e, s) {
-      log('Erro ao buscar produtos', error: e, stackTrace: s);
+    } on RepositoryException catch (e, s) {
+      log(e.message, error: e, stackTrace: s);
       emit(
-        state.copyWith(
-          status: HomeStateStatus.error,
-          errorMessage: 'Error ao busca produtos',
-        ),
+        state.copyWith(status: HomeStateStatus.error, errorMessage: e.message),
       );
     }
   }
