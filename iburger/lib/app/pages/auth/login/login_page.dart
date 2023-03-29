@@ -16,15 +16,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends BaseState<LoginPage, LoginController> {
-  final passNotifier = ValueNotifier<bool>(true);
-  final formKey = GlobalKey<FormState>();
-  final emailEC = TextEditingController();
-  final passEC = TextEditingController();
+  final _passNotifier = ValueNotifier<bool>(true);
+  final _formKey = GlobalKey<FormState>();
+  final _emailEC = TextEditingController();
+  final _passEC = TextEditingController();
 
   @override
   void dispose() {
-    emailEC.dispose();
-    passEC.dispose();
+    _emailEC.dispose();
+    _passEC.dispose();
+    _passNotifier.dispose();
     super.dispose();
   }
 
@@ -56,7 +57,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Form(
-                  key: formKey,
+                  key: _formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -66,7 +67,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                       ),
                       const SizedBox(height: 30),
                       TextFormField(
-                        controller: emailEC,
+                        controller: _emailEC,
                         decoration: const InputDecoration(labelText: "E-mail"),
                         validator: Validatorless.multiple([
                           Validatorless.required("E-mail é obrigatório"),
@@ -75,15 +76,15 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                       ),
                       const SizedBox(height: 30),
                       ValueListenableBuilder(
-                        valueListenable: passNotifier,
-                        builder: (context, value, __) => TextFormField(
-                          controller: passEC,
+                        valueListenable: _passNotifier,
+                        builder: (context_, value, __) => TextFormField(
+                          controller: _passEC,
                           obscureText: value,
                           decoration: InputDecoration(
                             labelText: "Senha",
                             suffix: GestureDetector(
                               onTap: () {
-                                passNotifier.value = !value;
+                                _passNotifier.value = !value;
                               },
                               child: Icon(
                                 value
@@ -100,9 +101,9 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                       DeliveryButton(
                         onPressed: () {
                           final valid =
-                              formKey.currentState?.validate() ?? false;
+                              _formKey.currentState?.validate() ?? false;
                           if (valid) {
-                            controller.login(emailEC.text, passEC.text);
+                            controller.login(_emailEC.text, _passEC.text);
                           }
                         },
                         child: const Text("ENTRAR"),

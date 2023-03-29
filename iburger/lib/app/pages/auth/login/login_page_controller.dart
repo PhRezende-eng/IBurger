@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:iburger/app/core/exception/repository_exception.dart';
 import 'package:iburger/app/core/exception/unthorized_exception.dart';
 import 'package:iburger/app/pages/auth/login/login_page_state.dart';
-import 'package:iburger/app/repository/ayth/auth_repository_impl.dart.dart';
+import 'package:iburger/app/repository/auth/auth_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends Cubit<LoginState> {

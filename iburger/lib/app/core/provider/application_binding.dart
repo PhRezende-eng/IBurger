@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iburger/app/core/rest_client/custom_dio.dart';
-import 'package:iburger/app/repository/ayth/auth_repository.dart';
+import 'package:iburger/app/repository/auth/auth_repository_impl.dart';
 import 'package:provider/provider.dart';
 
 class ApplicationBinding extends StatelessWidget {

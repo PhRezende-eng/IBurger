@@ -5,7 +5,7 @@ import 'package:iburger/app/core/exception/repository_exception.dart';
 import 'package:iburger/app/core/exception/unthorized_exception.dart';
 import 'package:iburger/app/core/rest_client/custom_dio.dart';
 import 'package:iburger/app/models/auth_model.dart';
-import 'package:iburger/app/repository/ayth/auth_repository_impl.dart.dart';
+import 'package:iburger/app/repository/auth/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final CustomDio dio;

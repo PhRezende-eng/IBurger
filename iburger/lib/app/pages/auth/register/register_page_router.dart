@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iburger/app/pages/auth/register/register_page.dart';
 import 'package:iburger/app/pages/auth/register/register_page_controller.dart';
-import 'package:iburger/app/repository/ayth/auth_repository.dart';
+import 'package:iburger/app/repository/auth/auth_repository_impl.dart';
 import 'package:provider/provider.dart';
 
 class RegisterPageRouter {

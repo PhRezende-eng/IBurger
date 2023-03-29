@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:iburger/app/core/exception/repository_exception.dart';
 import 'package:iburger/app/pages/auth/register/register_page_state.dart';
-import 'package:iburger/app/repository/ayth/auth_repository_impl.dart.dart';
+import 'package:iburger/app/repository/auth/auth_repository.dart';
 
 class RegisterPageController extends Cubit<RegisterSate> {
   final AuthRepository _authRepository;
