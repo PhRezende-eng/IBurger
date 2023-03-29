@@ -11,21 +11,21 @@ class DeliverySnackBar extends SnackBar {
     this.message, {
     super.key,
   }) : super(
-          margin: EdgeInsets.only(
-            bottom: context.size!.height * 0.74,
+          margin: const EdgeInsets.only(
+            bottom: 16,
             left: 24,
-            right: 25,
+            right: 24,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
           elevation: 16,
-          dismissDirection: DismissDirection.none,
+          dismissDirection: DismissDirection.horizontal,
           behavior: SnackBarBehavior.floating,
           backgroundColor: context.colors.errorColor,
           content: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
                 Icons.error_outline,
@@ -33,12 +33,15 @@ class DeliverySnackBar extends SnackBar {
                 size: 32,
               ),
               const SizedBox(width: 8),
-              Flexible(
-                child: Text(
-                  message,
-                  style: context.textStyles.textMedium.copyWith(fontSize: 18),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    message,
+                    style: context.textStyles.textMedium.copyWith(fontSize: 18),
+                  ),
                 ),
               ),
+              const SizedBox(width: 16),
             ],
           ),
         );
@@ -48,21 +51,21 @@ class DeliverySnackBar extends SnackBar {
     this.message, {
     super.key,
   }) : super(
-          margin: EdgeInsets.only(
-            bottom: context.size!.height * 0.74,
+          margin: const EdgeInsets.only(
+            bottom: 16,
             left: 24,
-            right: 25,
+            right: 24,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
           elevation: 16,
-          dismissDirection: DismissDirection.none,
+          dismissDirection: DismissDirection.horizontal,
           behavior: SnackBarBehavior.floating,
           backgroundColor: context.colors.successColor,
           content: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
                 Icons.check,
@@ -70,12 +73,15 @@ class DeliverySnackBar extends SnackBar {
                 size: 32,
               ),
               const SizedBox(width: 8),
-              Flexible(
-                child: Text(
-                  message,
-                  style: context.textStyles.textMedium.copyWith(fontSize: 18),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    message,
+                    style: context.textStyles.textMedium.copyWith(fontSize: 18),
+                  ),
                 ),
               ),
+              const SizedBox(width: 16),
             ],
           ),
         );
@@ -85,21 +91,21 @@ class DeliverySnackBar extends SnackBar {
     this.message, {
     super.key,
   }) : super(
-          margin: EdgeInsets.only(
-            bottom: context.size!.height * 0.74,
+          margin: const EdgeInsets.only(
+            bottom: 16,
             left: 24,
-            right: 25,
+            right: 24,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
           elevation: 16,
-          dismissDirection: DismissDirection.none,
+          dismissDirection: DismissDirection.horizontal,
           behavior: SnackBarBehavior.floating,
           backgroundColor: context.colors.warningColor,
           content: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
                 Icons.warning_outlined,
@@ -107,12 +113,15 @@ class DeliverySnackBar extends SnackBar {
                 size: 32,
               ),
               const SizedBox(width: 8),
-              Flexible(
-                child: Text(
-                  message,
-                  style: context.textStyles.textMedium.copyWith(fontSize: 18),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    message,
+                    style: context.textStyles.textMedium.copyWith(fontSize: 18),
+                  ),
                 ),
               ),
+              const SizedBox(width: 16),
             ],
           ),
         );
