@@ -16,11 +16,14 @@ class OrderProductTile extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          Image.network(
-            orderProduct.product.image,
-            height: 100,
-            width: 100,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            child: Image.network(
+              orderProduct.product.image,
+              height: 100,
+              width: 100,
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(width: 8),
           Expanded(
