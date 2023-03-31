@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:iburger/app/core/extensions/formatter_extension.dart';
 import 'package:iburger/app/core/ui/styles/colors_app.dart';
 import 'package:iburger/app/core/ui/styles/text_styles.dart';
 import 'package:iburger/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:iburger/app/dto/order_product_dto.dart';
+import 'package:iburger/app/pages/order/widgets/order_field.dart';
 import 'package:iburger/app/pages/order/widgets/order_product_tile.dart';
+import 'package:validatorless/validatorless.dart';
 
 class OrderPage extends StatelessWidget {
   final List<OrderProductDto> bag;
@@ -12,13 +15,18 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var totalPrice = bag.fold(
+        0.0,
+        (previousPrice, currentProduct) =>
+            previousPrice + currentProduct.amount);
+
     return Scaffold(
       appBar: DeliveryAppBar(),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Row(
                 children: [
                   Text(
@@ -47,6 +55,47 @@ class OrderPage extends StatelessWidget {
               },
             ),
           ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total do pedido',
+                        style: context.textStyles.textExtraBold
+                            .copyWith(fontSize: 16),
+                      ),
+                      Text(
+                        totalPrice.currencyPTBR,
+                        style: context.textStyles.textExtraBold
+                            .copyWith(fontSize: 20),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Divider(color: context.colors.borderSideButton),
+                OrderField(
+                  controller: TextEditingController(),
+                  hintText: 'Endereço de entrega',
+                  title: 'Digite um endereço',
+                  validatorless: Validatorless.required('m'),
+                ),
+                const SizedBox(height: 10),
+                OrderField(
+                  controller: TextEditingController(),
+                  hintText: 'CPF',
+                  title: 'Digite o CPF',
+                  validatorless: Validatorless.required('m'),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
+          )
         ],
       ),
     );
