@@ -37,6 +37,7 @@ class ThemeConfig {
       border: _deafaultInputBorder,
       enabledBorder: _deafaultInputBorder,
       focusedBorder: _deafaultInputBorder,
+      errorBorder: _deafaultInputBorder,
       labelStyle: TextStyles.instance.textRegular
           .copyWith(color: ColorsApp.instance.blackColor),
       errorStyle: TextStyles.instance.textRegular
