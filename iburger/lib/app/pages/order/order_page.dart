@@ -3,6 +3,7 @@ import 'package:iburger/app/core/extensions/formatter_extension.dart';
 import 'package:iburger/app/core/ui/styles/colors_app.dart';
 import 'package:iburger/app/core/ui/styles/text_styles.dart';
 import 'package:iburger/app/core/ui/widgets/delivery_appbar.dart';
+import 'package:iburger/app/core/ui/widgets/delivery_button.dart';
 import 'package:iburger/app/dto/order_product_dto.dart';
 import 'package:iburger/app/pages/order/widgets/order_field.dart';
 import 'package:iburger/app/pages/order/widgets/order_product_tile.dart';
@@ -93,6 +94,24 @@ class OrderPage extends StatelessWidget {
                   validatorless: Validatorless.required('m'),
                 ),
                 const SizedBox(height: 10),
+                //TODO: Payment methods
+              ],
+            ),
+          ),
+          SliverFillRemaining(
+            child: Column(
+              children: [
+                Divider(
+                  color: context.colors.borderSideButton,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: DeliveryButton(
+                    height: 48,
+                    onPressed: () {},
+                    child: const Text('Finalizar pedido'),
+                  ),
+                ),
               ],
             ),
           )

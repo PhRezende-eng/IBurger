@@ -27,7 +27,6 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     //TODO: create reload screen when error state
     return Scaffold(
-      appBar: DeliveryAppBar(),
       body: BlocConsumer<HomeController, HomeState>(
         listener: (context, state) => state.status.matchAny(
           any: () => hideLoader(),
@@ -42,36 +41,50 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
           initial: () => true,
           loaded: () => true,
         ),
-        builder: (context, state) => Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: state.products.length,
-                itemBuilder: (context, index) {
-                  final product = state.products[index];
-                  final orders = state.shoppingBag.where(
-                    (order) => order.product == product,
-                  );
-
-                  return Column(
-                    children: [
-                      DeliveryProductTile(
-                        key: ObjectKey(product.id),
-                        product: product,
-                        orderProduct: orders.isNotEmpty ? orders.first : null,
-                      ),
-                      const Divider(),
-                    ],
-                  );
-                },
+        builder: (context, state) {
+          return CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                pinned: true,
+                floating: true,
+                expandedHeight: 176,
+                flexibleSpace: DeliveryAppBar(),
               ),
-            ),
-            Visibility(
-              visible: state.shoppingBag.isNotEmpty,
-              child: ShoppingBagWidget(bag: state.shoppingBag),
-            ),
-          ],
-        ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: state.products.length,
+                  (context, index) {
+                    final product = state.products[index];
+                    final orders = state.shoppingBag.where(
+                      (order) => order.product == product,
+                    );
+                    return Column(
+                      children: [
+                        Column(
+                          children: [
+                            DeliveryProductTile(
+                              key: ObjectKey(product.id),
+                              product: product,
+                              orderProduct:
+                                  orders.isNotEmpty ? orders.first : null,
+                            ),
+                            const Divider(),
+                          ],
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              SliverFillRemaining(
+                child: Visibility(
+                  visible: state.shoppingBag.isNotEmpty,
+                  child: ShoppingBagWidget(bag: state.shoppingBag),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
