@@ -46,7 +46,6 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
             slivers: [
               SliverAppBar(
                 pinned: true,
-                floating: true,
                 expandedHeight: 176,
                 flexibleSpace: DeliveryAppBar(),
               ),

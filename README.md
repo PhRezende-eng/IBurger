@@ -69,7 +69,7 @@ SliverToBoxAdapter: A sliver that allows you to warp any other widget that isnâ€
 
 SliverOpacity: A sliver widget that makes its sliver child partially transparent. It is an easy-to-use replacement to the Opacity widget, just like SliverPadding
 
-SliverFillRemaining: ?
+SliverFillRemaining: SliverFillRemaining class is a widget inside slivers that contain a single box child that fills the remaining space in the viewport.
 
 From: https://blog.logrocket.com/building-custom-flutter-scrollview/
  ```

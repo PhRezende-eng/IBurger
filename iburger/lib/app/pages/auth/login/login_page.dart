@@ -77,7 +77,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                       const SizedBox(height: 30),
                       ValueListenableBuilder(
                         valueListenable: _passNotifier,
-                        builder: (context_, value, __) => TextFormField(
+                        builder: (context, value, __) => TextFormField(
                           controller: _passEC,
                           obscureText: value,
                           decoration: InputDecoration(
