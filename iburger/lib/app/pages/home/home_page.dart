@@ -45,8 +45,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
           return CustomScrollView(
             slivers: [
               SliverAppBar(
-                pinned: true,
-                expandedHeight: 176,
+                floating: true,
                 flexibleSpace: DeliveryAppBar(),
               ),
               SliverList(
@@ -75,7 +74,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                   },
                 ),
               ),
-              SliverFillRemaining(
+              SliverToBoxAdapter(
                 child: Visibility(
                   visible: state.shoppingBag.isNotEmpty,
                   child: ShoppingBagWidget(bag: state.shoppingBag),

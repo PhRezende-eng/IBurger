@@ -4,7 +4,7 @@ import 'package:iburger/app/core/ui/theme/theme_config.dart';
 import 'package:iburger/app/pages/auth/login/login_page_router.dart';
 import 'package:iburger/app/pages/auth/register/register_page_router.dart';
 import 'package:iburger/app/pages/home/home_router.dart';
-import 'package:iburger/app/pages/order/order_page_router.dart';
+import 'package:iburger/app/pages/order/order_router.dart';
 import 'package:iburger/app/pages/product_detail/product_datail_router.dart';
 import 'package:iburger/app/pages/splash/splash_page.dart';
 
